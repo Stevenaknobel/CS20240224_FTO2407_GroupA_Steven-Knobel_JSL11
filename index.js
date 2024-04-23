@@ -1,7 +1,7 @@
 // TASK: import helper functions from utils
 // TASK: import initialData
-import { getTasks, createNewTask, patchTask, putTask, deleteTask } from ".utils/taskFunction.js";
-import { initialData } from ".initialData.js";
+import { getTasks, createNewTask, patchTask, putTask, deleteTask } from "./utils/taskFunction.js";
+import { initialData } from "./initialData.js";
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -19,7 +19,15 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-
+  headerBoardName: document.getElementById('header-board-name'),
+  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+  showSideBarBtn: document.getElementById('show-side-bar-btn'),
+  createNewTaskBtn: document.getElementById('create-task-btn'),
+  modalWindow: document.getElementById(''),
+  editTaskModal: document.getElementsByClassName(''),
+  toggleModal: document.getElementById(''),
+  filterDiv: document.getElementById('filterDiv'),
+  themeSwitch: document.getElementById(''),
 }
 
 let activeBoard = ""
@@ -32,6 +40,7 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
+    // Replaced the semi-colon with a colon
     activeBoard = localStorageBoard ? localStorageBoard : boards[0];
     elements.headerBoardName.textContent = activeBoard
     styleActiveBoard(activeBoard)
