@@ -213,6 +213,9 @@ function setupEventListeners() {
   elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
   elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
 
+  // Show the button
+  //elements.showSideBarBtn.style.display = 'block';
+
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
@@ -243,6 +246,9 @@ function addTask(event) {
   event.preventDefault();
 
   //Assign user input to the task object
+  const task_id = JSON.parse(localStorage.getItem('id')); // Retrieves value from browser's local storage
+
+
   const task = {
 
   };
