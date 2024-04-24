@@ -298,10 +298,9 @@ function toggleTheme() {
 }
 
 
-
-
 function openEditTaskModal(task) {
   // Set task details in modal inputs
+  elements.editTaskTitleInput.value = task.title; // Populates task's title in an input field for editing
 
 
   // Get button elements from the task modal
@@ -315,6 +314,7 @@ function openEditTaskModal(task) {
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
+
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
