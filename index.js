@@ -267,6 +267,7 @@ function addTask(event) {
     event.target.reset();
     refreshTasksUI();
   }
+  location.reload();
 }
 
 
@@ -346,8 +347,16 @@ function saveTaskChanges(taskId) {
   patchTask(taskId, updatedTask); // Takes two arguments to update task identified by 'taskId' with new data provided in 'updatedTask'
 
   // Close the modal and refresh the UI to reflect the changes
+  location.reload();
+  toggleModal(false, elements.editTaskModal);
 
   refreshTasksUI();
+}
+
+const displayStoredTasks = () => {
+  // Retrieving the tasks from localStorage
+  const storedTasks = localStorage.getItem('tasks');
+
 }
 
 /*************************************************************************************************************************************************/
