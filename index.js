@@ -31,7 +31,12 @@ const elements = {
 
   // Primary layout (header, add task button)
   header: document.getElementById('header'),
+  addNewTaskBtn: document.getElementById('add-new-task-btn'),
+  deleteBoardBtn: document.getElementById('delete-board-btn'),
   dropdownBtn: document.getElementById('dropdownBtn'),
+  editBoardBtn: document.getElementById('edit-board-btn'),
+
+  // Primary layout (main area for task columns)
   createNewTaskBtn: document.getElementById('create-task-btn'),
   modalWindow: document.getElementById('new-task-modal-window'),
   editTaskModal: document.getElementsByClassName(''),
