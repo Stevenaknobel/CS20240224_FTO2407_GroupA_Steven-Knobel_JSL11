@@ -322,17 +322,19 @@ function openEditTaskModal(task) {
   })
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
+  refreshTasksUI();
 }
 
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
+  const task_id = JSON.parse(localStorage.getItem('id')); // Fetches task ID from local storage
 
 
   // Create an object with the updated task details
 
 
-  // Update task using a hlper functoin
+  // Update task using a helper functoin
 
 
   // Close the modal and refresh the UI to reflect the changes
