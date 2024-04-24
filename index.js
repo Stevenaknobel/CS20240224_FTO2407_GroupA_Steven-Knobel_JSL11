@@ -185,7 +185,7 @@ function addTaskToUI(task) {
   taskElement.textContent = task.title; // Modify as needed
   taskElement.setAttribute('data-task-id', task.id);
 
-  tasksContainer.appendChild();
+  tasksContainer.appendChild(taskElement); // Appended taskElement to tasksContainer, to ensure that the newly created task is visually added to the appropriate section of the UI, making it visible to the user
 }
 
 
