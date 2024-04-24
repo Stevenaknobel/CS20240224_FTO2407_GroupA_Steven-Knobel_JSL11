@@ -270,8 +270,9 @@ function addTask(event) {
 }
 
 
-function toggleSidebar(show) {
-
+function toggleSidebar(show) { // Controls the visibility of a sidebar in  the user interface
+  elements.sideBar.style.display = show ? 'block' : 'none';
+  elements.showSideBarBtn.style.display = show ? 'none' : 'block';
 }
 
 function toggleTheme() {
