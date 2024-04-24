@@ -255,7 +255,7 @@ function addTask(event) {
   const task = {
     'id': task_id,
     'title': titleInput,
-    'description': descInput,
+    'desc': descInput,
     'status': selectStatus,
     'board': activeBoard,
   };
@@ -269,11 +269,18 @@ function addTask(event) {
   }
 }
 
-
 function toggleSidebar(show) { // Controls the visibility of a sidebar in  the user interface
   elements.sideBar.style.display = show ? 'block' : 'none';
   elements.showSideBarBtn.style.display = show ? 'none' : 'block';
 }
+
+// Declared isLightTheme variable and assign it with boolean value true
+// let isLightTheme;
+
+// Get current theme from local storage or set to default (light)
+const currentMode = localStorage.getItem('mode') || 'light';
+let isLightTheme = currentMode === 'light';
+
 
 function toggleTheme() {
 
