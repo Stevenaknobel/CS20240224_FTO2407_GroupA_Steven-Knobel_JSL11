@@ -103,12 +103,11 @@ function displayBoards(boards) {
 
 }
 
-const columnTitles = { // Added a variable for the various column titles
+const columnTitles = {
   todo: 'TODO',
   doing: 'DOING',
   done: 'DONE',
 }
-
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
@@ -120,7 +119,7 @@ function filterAndDisplayTasksByBoard(boardName) {
   elements.columnDivs.forEach(column => {
     const status = column.getAttribute("data-status");
     // Reset column content while preserving the column title
-    const columnTitle = columnTitles[status]; // This variable represents the status of a task
+    const columnTitle = columnTitles[status];
     column.innerHTML = `<div class="column-head-div">
                           <span class="dot" id="${status}-dot"></span>
                           <h4 class="columnHeader">${status.toUpperCase()}</h4>
@@ -213,9 +212,6 @@ function setupEventListeners() {
   elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
   elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
 
-  // Show the button
-  //elements.showSideBarBtn.style.display = 'block';
-
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
@@ -251,14 +247,14 @@ function addTask(event) {
   const descInput = elements.descInput.value; // Captures value entered in a textarea field, such as a task description.
   const selectStatus = elements.selectStatus.value; // Captures selected value from a dropdown list, indicating the status or category of the task
 
-  // 'task' object to store info such as ID, title, etc. 
+  // 'task' object to store info such as title, description, etc. 
   const task = {
-    'id': task_id,
-    'title': titleInput,
-    'desc': descInput,
-    'status': selectStatus,
-    'board': activeBoard,
+    title: document.getElementById('title-input').value,
+    desc: document.getElementById('desc-input').value,
+    status: document.getElementById('select-status').value,
+    board: activeBoard,
   };
+
   const newTask = createNewTask(task);
   if (newTask) {
     addTaskToUI(newTask);
@@ -267,7 +263,6 @@ function addTask(event) {
     event.target.reset();
     refreshTasksUI();
   }
-  location.reload();
 }
 
 
@@ -279,23 +274,29 @@ function toggleSidebar(show) { // Controls the visibility of a sidebar in  the u
 
 // Get current theme from local storage or set to default (light)
 const currentMode = localStorage.getItem('mode') || 'light';
-let isLightTheme = currentMode === 'light';
+let isLightMode = currentMode === 'light';
 
 // Set the initial SVG source based on the current mode
-let sideLogoDivSrc = isLightTheme ? './assets/logo-dark.svg' : './assets/logo-light.svg';
+let sideLogoDivSrc = isLightMode ? './assets/logo-dark.svg' : './assets/logo-light.svg';
 elements.sideLogoDiv.src = sideLogoDivSrc;
 
 
 function toggleTheme() {
-  const isLightMode = document.body.classList.contains('light-mode');
-  document.body.classList.toggle('light-mode');
-  localStorage.setItem('light-theme', !isLightMode ? 'enabled' : 'disabled');
+  //const isDarkTheme = document.body.classList.contains('dark-theme');
+  //localStorage.setItem('dark-theme', isDarkTheme? 'enabled' :'disabled'); 
+  if (localStorage.getItem('light-theme') == 'enable') {
+    document.body.classList.toggle('light-theme', false);
+    localStorage.setItem('light-theme', 'disable');
+    let img = document.getElementById('logo');
+    img.src = './assets/logo-dark.svg';
+  }
+  else {
+    document.body.classList.toggle('light-theme', true);
+    localStorage.setItem('light-theme', 'enable');
+    let img = document.getElementById('logo');
+    img.src = './assets/logo-light.svg';
 
-  isLightTheme = !isLightTheme; // Handles switching of themes 
-  sideLogoDivSrc = isLightTheme ? './assets/logo-dark.svg' : './assets/logo-light.svg'; // Updates logo displayed on UI based on selected theme
-  elements.sideLogoDiv.src = sideLogoDivSrc;
-  localStorage.setItem('mode', isLightTheme ? 'light' : 'dark'); // Store selected theme in localStorage
-  localStorage.setItem('sideLogoDiv', sideLogoDivSrc); // Store selected SVG source in localStorage
+  }
 }
 
 
@@ -308,11 +309,12 @@ function openEditTaskModal(task) {
   // Get button elements from the task modal
   const saveChangesBtn = document.getElementById('save-task-changes-btn'); // Retrieves element from HTML that represents a button that saves changes made to task
   const deleteTaskBtn = document.getElementById('delete-task-btn'); // Retrieves element from HTML that represents a button that deletes task
+  const cancelEditTaskBtn = document.getElementById('cancel-edit-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
   saveChangesBtn.addEventListener('click', () => {
     saveTaskChanges(task.id);
-    refreshTasksUI();
+    toggleModal(false, elements.editTaskModal);
   });
 
   // Delete task using a helper function and close the task modal
@@ -320,7 +322,11 @@ function openEditTaskModal(task) {
     deleteTask(task.id);
     toggleModal(false, elements.editTaskModal);
     refreshTasksUI();
-  })
+  });
+
+  cancelEditTaskBtn.addEventListener('click', () => {
+    toggleModal(false, elements.editTaskModal);
+  });
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
   refreshTasksUI();
@@ -336,7 +342,6 @@ function saveTaskChanges(taskId) {
 
   // Create an object with the updated task details
   const updatedTask = {
-    id: task_id,
     title: titleInput,
     description: descriptionInput,
     status: selectStatus,
@@ -347,13 +352,12 @@ function saveTaskChanges(taskId) {
   patchTask(taskId, updatedTask); // Takes two arguments to update task identified by 'taskId' with new data provided in 'updatedTask'
 
   // Close the modal and refresh the UI to reflect the changes
-  location.reload();
+  // location.reload();
   toggleModal(false, elements.editTaskModal);
-
   refreshTasksUI();
 }
 
-const displayStoredTasks = () => {
+/*const displayStoredTasks = () => {
   // Retrieving the tasks from localStorage
   const storedTasks = localStorage.getItem('tasks');
 
@@ -369,7 +373,7 @@ const displayStoredTasks = () => {
 }
 
 // Calling the function to display the stored tasks
-displayStoredTasks();
+displayStoredTasks(); */
 
 /*************************************************************************************************************************************************/
 
@@ -378,9 +382,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
-  if (localStorage.getItem('sideLogoDiv') === './assets/logo-light.svg') {
+  // Ensure that the correct logo image is displayed based on the stored value
+  /* if (localStorage.getItem('sideLogoDiv') === './assets/logo-light.svg') {
     elements.sideLogoDiv.src = './assets/logo-light.svg';
-  }
+  } */
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
