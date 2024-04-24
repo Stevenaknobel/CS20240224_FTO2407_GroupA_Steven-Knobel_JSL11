@@ -41,8 +41,11 @@ const elements = {
   modalWindow: document.getElementById('new-task-modal-window'),
   editTaskModal: document.getElementsByClassName(''),
   toggleModal: document.getElementById(''),
-  filterDiv: document.getElementById('filterDiv'),
+
   columnDivs: document.getElementById('column-div'),
+
+  // Filter div
+  filterDiv: document.getElementById('filterDiv'),
 }
 
 let activeBoard = ""
