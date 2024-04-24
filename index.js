@@ -357,6 +357,10 @@ const displayStoredTasks = () => {
   // Retrieving the tasks from localStorage
   const storedTasks = localStorage.getItem('tasks');
 
+  if (storedTasks) {
+    // Parsing the JSON string to an array of tasks
+    const tasks = JSON.parse(storedTasks);
+  }
 }
 
 /*************************************************************************************************************************************************/
