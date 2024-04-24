@@ -1,6 +1,6 @@
 // TASK: import helper functions from utils
 // TASK: import initialData
-import { getTasks, createNewTask, patchTask, putTask, deleteTask } from "./utils/taskFunction.js";
+import { getTasks, createNewTask, patchTask, putTask, deleteTask } from "./utils/taskFunctions.js";
 import { initialData } from "./initialData.js";
 
 /*************************************************************************************************************************************************
@@ -16,6 +16,8 @@ function initializeData() {
     console.log('Data already exists in localStorage');
   }
 }
+
+initializeData();
 
 // TASK: Get elements from the DOM
 const elements = {
@@ -37,7 +39,7 @@ const elements = {
   editBoardBtn: document.getElementById('edit-board-btn'),
 
   // Primary layout (main area for task columns)
-  columnDivs: document.getElementById('column-div'),
+  columnDivs: document.querySelectorAll('.column-div'), // document.getElementsByClassName('column-div'),
   tasksContainer: document.querySelector('.tasks-container'),
 
   // New task modal(form for adding a new task)
@@ -67,6 +69,7 @@ let activeBoard = ""
 // TASK: FIX BUGS
 function fetchAndDisplayBoardsAndTasks() {
   const tasks = getTasks();
+  console.log(tasks)
   const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
   displayBoards(boards);
   if (boards.length > 0) {
@@ -114,7 +117,6 @@ function filterAndDisplayTasksByBoard(boardName) {
   const filteredTasks = tasks.filter(task => task.board === boardName); // Used the equality operator '===' for comparison
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
-
   elements.columnDivs.forEach(column => {
     const status = column.getAttribute("data-status");
     // Reset column content while preserving the column title
@@ -151,7 +153,7 @@ function refreshTasksUI() {
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreach(btn => {
+  document.querySelectorAll('.board-btn').forEach(btn => {
 
     if (btn.textContent === boardName) {
       // Added the 'classList' method
@@ -187,7 +189,6 @@ function addTaskToUI(task) {
 
   tasksContainer.appendChild(taskElement); // Appended taskElement to tasksContainer, to ensure that the newly created task is visually added to the appropriate section of the UI, making it visible to the user
 }
-
 
 
 function setupEventListeners() {
