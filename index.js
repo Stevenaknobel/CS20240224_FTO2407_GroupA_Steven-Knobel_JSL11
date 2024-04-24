@@ -291,6 +291,8 @@ function toggleTheme() {
   localStorage.setItem('light-theme', !isLightMode ? 'enabled' : 'disabled');
 
   isLightTheme = !isLightTheme; // Handles switching of themes 
+  sideLogoDivSrc = isLightTheme ? './assets/logo-dark.svg' : './assets/logo-light.svg'; // Updates logo displayed on UI based on selected theme
+
 }
 
 
