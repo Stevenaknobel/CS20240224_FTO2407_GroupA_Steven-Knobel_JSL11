@@ -19,15 +19,24 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
+  // Navigation Sidebar
   headerBoardName: document.getElementById('header-board-name'),
+  sideBar: document.querySelector('.side-bar'),
+  sideBarDiv: document.getElementById('side-bar-div'),
   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
   showSideBarBtn: document.getElementById('show-side-bar-btn'),
-  createNewTaskBtn: document.getElementById('create-task-btn'), // add-modal-task-window
+  sideLogoDiv: document.getElementById('logo'),
+  themeSwitch: document.getElementById('switch'),
+  boardsNavLinksDiv: document.getElementById('boards-nav-links-div'),
+
+  // Primary layout (header, add task button)
+  header: document.getElementById('header'),
+  dropdownBtn: document.getElementById('dropdownBtn'),
+  createNewTaskBtn: document.getElementById('create-task-btn'),
   modalWindow: document.getElementById('new-task-modal-window'),
   editTaskModal: document.getElementsByClassName(''),
   toggleModal: document.getElementById(''),
   filterDiv: document.getElementById('filterDiv'),
-  themeSwitch: document.getElementById('switch'),
   columnDivs: document.getElementById('column-div'),
 }
 
@@ -89,7 +98,7 @@ function filterAndDisplayTasksByBoard(boardName) {
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
 
-    filteredTasks.filter(task => task.status === status).forEach(task => {
+    filteredTasks.filter(task => task.status === status).forEach(task => { // Used the equality operator '===' for comparison
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
