@@ -360,6 +360,11 @@ const displayStoredTasks = () => {
   if (storedTasks) {
     // Parsing the JSON string to an array of tasks
     const tasks = JSON.parse(storedTasks);
+
+    // Logging tasks to console
+    console.log(tasks);
+  } else {
+
   }
 }
 
