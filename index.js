@@ -334,7 +334,13 @@ function saveTaskChanges(taskId) {
   const selectStatus = elements.editSelectStatus.value; // Chooses the status of the task
 
   // Create an object with the updated task details
-
+  const updatedTask = {
+    id: task_id,
+    title: titleInput,
+    description: descriptionInput,
+    status: selectStatus,
+    board: activeBoard,
+  };
 
   // Update task using a helper functoin
 
