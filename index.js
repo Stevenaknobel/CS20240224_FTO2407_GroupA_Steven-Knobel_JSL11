@@ -48,8 +48,14 @@ const elements = {
   cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
   createNewTaskBtn: document.getElementById('add-new-task-btn'),
 
-  editTaskModal: document.getElementsByClassName(''),
-  toggleModal: document.getElementById(''),
+  // Edit task modal(form for editing an existing task's details)
+  cancelEditBtn: document.getElementById('cancel-edit-btn'),
+  deleteTaskBtn: document.getElementById('delete-task-btn'),
+  editTaskDescInput: document.getElementById('edit-task-desc-input'),
+  editTaskTitleInput: document.getElementById('edit-task-title-input'),
+  editSelectStatus: document.getElementById('edit-select-status'),
+  editTaskForm: document.getElementById('edit-task-form'),
+  editTaskModal: document.querySelector('.edit-task-modal-window'),
 
   // Filter div
   filterDiv: document.getElementById('filterDiv'),
