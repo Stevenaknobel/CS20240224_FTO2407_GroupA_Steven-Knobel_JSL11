@@ -315,7 +315,7 @@ function openEditTaskModal(task) {
   });
 
   // Delete task using a helper function and close the task modal
-  deleteTaskBtn.addEventListener('click', () => {
+  deleteTaskBtn.addEventListener('click', () => { // Included an event listener that triggers deletion of specified task 'deleteTask(task.id)', while also hiding the task modal, and then refreshing the tasks UI 
     deleteTask(task.id);
     toggleModal(false, elements.editTaskModal);
     refreshTasksUI();
