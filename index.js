@@ -289,7 +289,11 @@ function toggleTheme() {
   const isLightMode = document.body.classList.contains('light-mode');
   document.body.classList.toggle('light-mode');
   localStorage.setItem('light-theme', !isLightMode ? 'enabled' : 'disabled');
+
+  isLightTheme = !isLightTheme; // Handles switching of themes 
 }
+
+
 
 
 function openEditTaskModal(task) {
