@@ -37,12 +37,15 @@ const elements = {
   editBoardBtn: document.getElementById('edit-board-btn'),
 
   // Primary layout (main area for task columns)
+  columnDivs: document.getElementById('column-div'),
+  tasksContainer: document.querySelector('.tasks-container'),
+
   createNewTaskBtn: document.getElementById('create-task-btn'),
   modalWindow: document.getElementById('new-task-modal-window'),
   editTaskModal: document.getElementsByClassName(''),
   toggleModal: document.getElementById(''),
 
-  columnDivs: document.getElementById('column-div'),
+
 
   // Filter div
   filterDiv: document.getElementById('filterDiv'),
