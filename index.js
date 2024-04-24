@@ -329,6 +329,7 @@ function openEditTaskModal(task) {
 function saveTaskChanges(taskId) {
   // Get new user inputs
   const task_id = JSON.parse(localStorage.getItem('id')); // Fetches task ID from local storage
+  const titleInput = elements.editTaskTitleInput.value; // Fetches current value entered that aloows users to input/edit title of a task 
 
 
   // Create an object with the updated task details
