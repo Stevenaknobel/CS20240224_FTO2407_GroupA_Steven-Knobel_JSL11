@@ -269,6 +269,7 @@ function addTask(event) {
   }
 }
 
+
 function toggleSidebar(show) { // Controls the visibility of a sidebar in  the user interface
   elements.sideBar.style.display = show ? 'block' : 'none';
   elements.showSideBarBtn.style.display = show ? 'none' : 'block';
@@ -280,6 +281,10 @@ function toggleSidebar(show) { // Controls the visibility of a sidebar in  the u
 // Get current theme from local storage or set to default (light)
 const currentMode = localStorage.getItem('mode') || 'light';
 let isLightTheme = currentMode === 'light';
+
+// Set the initial SVG source based on the current mode
+let sideLogoDivSrc = isLightTheme ? './assets/logo-dark.svg' : './assets/logo-light.svg';
+elements.sideLogoDiv.src = sideLogoDivSrc;
 
 
 function toggleTheme() {
