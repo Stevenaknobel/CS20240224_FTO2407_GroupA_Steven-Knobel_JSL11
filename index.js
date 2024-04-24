@@ -40,12 +40,16 @@ const elements = {
   columnDivs: document.getElementById('column-div'),
   tasksContainer: document.querySelector('.tasks-container'),
 
-  createNewTaskBtn: document.getElementById('create-task-btn'),
+  // New task modal(form for adding a new task)
   modalWindow: document.getElementById('new-task-modal-window'),
+  descInput: document.getElementById('desc-input'),
+  titleInput: document.getElementById('title-input'),
+  selectStatus: document.getElementById('select-status'),
+  cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
+  createNewTaskBtn: document.getElementById('add-new-task-btn'),
+
   editTaskModal: document.getElementsByClassName(''),
   toggleModal: document.getElementById(''),
-
-
 
   // Filter div
   filterDiv: document.getElementById('filterDiv'),
