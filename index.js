@@ -364,7 +364,7 @@ const displayStoredTasks = () => {
     // Logging tasks to console
     console.log(tasks);
   } else {
-
+    console.log('No tasks stored in localStorage')
   }
 }
 
