@@ -294,7 +294,7 @@ function toggleTheme() {
   sideLogoDivSrc = isLightTheme ? './assets/logo-dark.svg' : './assets/logo-light.svg'; // Updates logo displayed on UI based on selected theme
   elements.sideLogoDiv.src = sideLogoDivSrc;
   localStorage.setItem('mode', isLightTheme ? 'light' : 'dark'); // Store selected theme in localStorage
-
+  localStorage.setItem('sideLogoDiv', sideLogoDivSrc); // Store selected SVG source in localStorage
 }
 
 
