@@ -275,8 +275,6 @@ function toggleSidebar(show) { // Controls the visibility of a sidebar in  the u
   elements.showSideBarBtn.style.display = show ? 'none' : 'block';
 }
 
-// Declared isLightTheme variable and assign it with boolean value true
-// let isLightTheme;
 
 // Get current theme from local storage or set to default (light)
 const currentMode = localStorage.getItem('mode') || 'light';
