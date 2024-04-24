@@ -251,8 +251,13 @@ function addTask(event) {
   const descInput = elements.descInput.value; // Captures value entered in a textarea field, such as a task description.
   const selectStatus = elements.selectStatus.value; // Captures selected value from a dropdown list, indicating the status or category of the task
 
+  // 'task' object to store info such as ID, title, etc. 
   const task = {
-
+    'id': task_id,
+    'title': titleInput,
+    'description': descInput,
+    'status': selectStatus,
+    'board': activeBoard,
   };
   const newTask = createNewTask(task);
   if (newTask) {
