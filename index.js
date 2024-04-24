@@ -22,12 +22,13 @@ const elements = {
   headerBoardName: document.getElementById('header-board-name'),
   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
   showSideBarBtn: document.getElementById('show-side-bar-btn'),
-  createNewTaskBtn: document.getElementById('create-task-btn'),
-  modalWindow: document.getElementById(''),
+  createNewTaskBtn: document.getElementById('create-task-btn'), // add-modal-task-window
+  modalWindow: document.getElementById('new-task-modal-window'),
   editTaskModal: document.getElementsByClassName(''),
   toggleModal: document.getElementById(''),
   filterDiv: document.getElementById('filterDiv'),
-  themeSwitch: document.getElementById(''),
+  themeSwitch: document.getElementById('switch'),
+  columnDivs: document.getElementById('column-div'),
 }
 
 let activeBoard = ""
@@ -51,7 +52,7 @@ function fetchAndDisplayBoardsAndTasks() {
 // Creates different boards in the DOM
 // TASK: Fix Bugs
 function displayBoards(boards) {
-  const boardsContainer = document.getElementById("boards-nav-links-div");
+  const boardsContainer = document.getElementById("#boards-nav-links-div"); // added #
   boardsContainer.innerHTML = ''; // Clears the container
   boards.forEach(board => {
     const boardElement = document.createElement("button");
