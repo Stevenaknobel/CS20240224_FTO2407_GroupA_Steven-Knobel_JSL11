@@ -247,7 +247,7 @@ function addTask(event) {
 
   //Assign user input to the task object
   const task_id = JSON.parse(localStorage.getItem('id')); // Retrieves value from browser's local storage
-
+  const titleInput = elements.titleInput.value; // Captures the value entered in an input field, such as a task title.
 
   const task = {
 
