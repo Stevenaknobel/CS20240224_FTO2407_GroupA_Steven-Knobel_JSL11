@@ -342,8 +342,8 @@ function saveTaskChanges(taskId) {
     board: activeBoard,
   };
 
-  // Update task using a helper functoin
-
+  // Update task using a helper function
+  patchTask(taskId, updatedTask); // Takes two arguments to update task identified by 'taskId' with new data provided in 'updatedTask'
 
   // Close the modal and refresh the UI to reflect the changes
 
