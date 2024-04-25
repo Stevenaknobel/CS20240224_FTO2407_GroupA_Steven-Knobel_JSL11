@@ -21,3 +21,5 @@ Some of the elements in this project were buttons, input fields, modal elements,
 I think this was so far the most demanding project to complete. There were many challenges, one of them being managing the data in localStorage, and ensuring the correct selection and manipulation of DOM elements.
 
 # Overall Learning Experience
+
+Having to fix all the bugs while combining what little UI styling knowledge I have with concepts like DOM manipulation, UI/UX implementation, and event handling almost had me at my breaking point but opened my eyes to daily activities in industry and helped me build on my troubleshooting and overall coding skills.
