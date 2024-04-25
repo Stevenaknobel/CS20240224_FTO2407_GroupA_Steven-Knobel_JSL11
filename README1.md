@@ -18,4 +18,6 @@ Some of the elements in this project were buttons, input fields, modal elements,
 
 # Challenges Faced
 
+I think this was so far the most demanding project to complete. There were many challenges, one of them being managing the data in localStorage, and ensuring the correct selection and manipulation of DOM elements.
+
 # Overall Learning Experience
