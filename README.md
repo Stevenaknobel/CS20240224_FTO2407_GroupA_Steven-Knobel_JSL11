@@ -1,6 +1,6 @@
 # JSL11: Portfolio Piece: Agile Board - Kanban Task Management App
 
-**LOOM video link:** []
+**LOOM video link:** [https://www.loom.com/share/598da8757e9648289d5f563aaadeb155?sid=ed38ce5b-51ee-4536-9b4a-3333e1d5c6b6]
 
 # Introduction
 

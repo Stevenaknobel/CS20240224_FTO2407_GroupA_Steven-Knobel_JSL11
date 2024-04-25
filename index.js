@@ -357,7 +357,7 @@ function saveTaskChanges(taskId) {
   refreshTasksUI();
 }
 
-/*const displayStoredTasks = () => {
+const displayStoredTasks = () => {
   // Retrieving the tasks from localStorage
   const storedTasks = localStorage.getItem('tasks');
 
@@ -373,7 +373,7 @@ function saveTaskChanges(taskId) {
 }
 
 // Calling the function to display the stored tasks
-displayStoredTasks(); */
+displayStoredTasks();
 
 /*************************************************************************************************************************************************/
 
