@@ -14,6 +14,8 @@ Some of the elements in this project were buttons, input fields, modal elements,
 
 # Areas of Mastery
 
+**Task Management:** I believe I was able to maneouvre through creating, editing, deleting, and displaying the tasks according to their boards and status proficiently.
+
 # Challenges Faced
 
 # Overall Learning Experience
