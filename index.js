@@ -90,17 +90,18 @@ function filterAndDisplayTasksByBoard(boardName) {
 
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
-
-    filteredTasks.filter(task => task.status = status).forEach(task => { 
+//fixed the = to === for the filter
+    filteredTasks.filter(task => task.status === status).forEach(task => { 
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      taskElement.click() => { 
+      //fixed the syntax errors on the onclick
+      taskElement.onclick = () => { 
         openEditTaskModal(task);
-      });
+      };
 
       tasksContainer.appendChild(taskElement);
     });
