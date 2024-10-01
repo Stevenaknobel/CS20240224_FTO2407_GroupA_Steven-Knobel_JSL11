@@ -71,14 +71,30 @@ function displayBoards(boards) {
 
 }
 
+// Function to initilize the titles before the following function runs
+function checkColumnTitlesInitialized() {
+    // Initialize column titles if not already set
+    elements.columnDivs.forEach(column => {
+      const status = column.getAttribute("data-status");
+      column.innerHTML = `<div class="column-head-div">
+                            <span class="dot" id="${status}-dot"></span>
+                            <h4 class="columnHeader">${status.toUpperCase()}</h4>
+                          </div>`;
+    });
+  }
+
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
+  //ensuring column title are set outsdie of this function
+  checkColumnTitlesInitialized();
+
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
   //changed = to === for proper comparison
   const filteredTasks = tasks.filter(task => task.board === boardName);
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
+  //added a function called checkColumnTitlesInitialized to make sure they are set before this function runs
 
   elements.columnDivs.forEach(column => {
     const status = column.getAttribute("data-status");
