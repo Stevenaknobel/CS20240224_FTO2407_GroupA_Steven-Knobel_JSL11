@@ -245,7 +245,7 @@ function addTask(event) {
 //create a const that fetches the sidebar div
 function toggleSidebar(show) {
   const sidebar = document.getElementById('side-bar-div');
-  //unhide sidebar button when the sidebar is hidden
+  //create a const to fetch the ID from the HTML for the button to show the sidebar
   const showButton = document.getElementById('show-side-bar-btn');
   sidebar.classList.toggle('show-sidebar', show);
   //hide button when sidebar is showing
@@ -266,7 +266,25 @@ document.getElementById('hide-side-bar-btn').addEventListener('click', () => {
 
 
 function toggleTheme() {
- 
+ //check if light theme is currently enabled
+ const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
+
+ //set up a toggle for the theme with an if statement
+ if (isLightTheme) {
+  //remove the light theme class
+  document.body.classList.remove('light-theme');
+  //update local storage
+  localStorage.setItem('light-theme', 'disabled');
+  //update the logo to the darkmode logo
+  logo.src = './assets/logo-dark.svg';
+ } else {
+   //add the light theme class
+   document.body.classList.add('light-theme');
+   //update local storage
+   localStorage.setItem('light-theme', 'enabled'); 
+   //update the logo to the lightmode logo
+   logo.src = './assets/logo-light.svg';
+ }
 }
 
 
