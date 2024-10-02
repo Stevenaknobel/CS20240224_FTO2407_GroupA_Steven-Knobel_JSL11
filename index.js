@@ -1,7 +1,7 @@
 // TASK: import helper functions from utils
-import { getTasks, createNewTask, patchTask, putTask, deleteTask } from './utils/taskfunctions.js';
+import { getTasks, createNewTask, patchTask, putTask, deleteTask } from './utils/taskFunctions.js';
 // TASK: import initialData
-import { initialData } from './initialdata.js';
+import { initialData } from './initialData.js';
 
 
 /*************************************************************************************************************************************************
@@ -17,6 +17,8 @@ function initializeData() {
     console.log('Data already exists in localStorage');
   }
 }
+//clear local storage to help with debugging
+//localStorage.clear()
 
 // TASK: Get elements from the DOM
 const elements = {
@@ -327,6 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
+  initializeData();
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
