@@ -794,6 +794,9 @@ input:checked + #label-checkbox-theme:after {
   display: none;
 }
 
+.side-bar {
+  display: none;
+}
 .side-bar.show-sidebar {
   display: flex !important;
 }

@@ -242,10 +242,28 @@ function addTask(event) {
     }
 }
 
-
+//create a const that fetches the sidebar div
 function toggleSidebar(show) {
- 
+  const sidebar = document.getElementById('side-bar-div');
+  //unhide sidebar button when the sidebar is hidden
+  const showButton = document.getElementById('show-side-bar-btn');
+  sidebar.classList.toggle('show-sidebar', show);
+  //hide button when sidebar is showing
+  showButton.style.display = show ? 'none' : 'block';
+  //save the visibility to localstorage
+  localStorage.setItem("showSideBar", show);
 }
+//add event listeners to show and hide the sidebar
+// Show sidebar button
+document.getElementById('show-side-bar-btn').addEventListener('click', () => {
+  toggleSidebar(true);  
+});
+
+// Hide sidebar button
+document.getElementById('hide-side-bar-btn').addEventListener('click', () => {
+  toggleSidebar(false);
+});
+
 
 function toggleTheme() {
  
