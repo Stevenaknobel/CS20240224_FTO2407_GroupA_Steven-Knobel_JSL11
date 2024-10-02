@@ -225,7 +225,11 @@ function addTask(event) {
   event.preventDefault(); 
 
   //Assign user input to the task object
+  //add title, description and status to the task const
     const task = {
+      title: document.getElementById('title-input').value,
+      description: document.getElementById('desc-input').value,
+      status: document.getElementById('select-status').value 
       
     };
     const newTask = createNewTask(task);
