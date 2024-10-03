@@ -252,6 +252,9 @@ function toggleSidebar(show) {
   sidebar.classList.toggle('show-sidebar', show);
   //hide button when sidebar is showing
   showButton.style.display = show ? 'none' : 'block';
+  //create a const to ensure the logo is visible when toggling the sidebar on and off in lightmode
+  const logo = document.getElementById('logo');
+  logo.style.visibility = show ? 'visible': 'hidden';
   //save the visibility to localstorage
   localStorage.setItem("showSideBar", show);
 }
@@ -268,7 +271,7 @@ document.getElementById('hide-side-bar-btn').addEventListener('click', () => {
 
 
 function toggleTheme() {
- //check if light theme is currently enabled
+ //check if light theme is currently enabled  
  const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
 
  //set up a toggle for the theme with an if statement
@@ -349,4 +352,7 @@ function init() {
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
+    // Set the logo source based on the theme so that the light logo shows when you refresh the page
+    const logo = document.getElementById('logo');
+    logo.src = isLightTheme ? './assets/logo-light.svg' : './assets/logo-dark.svg';
 }
