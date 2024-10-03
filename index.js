@@ -226,6 +226,13 @@ function toggleModal(show, modal = elements.modalWindow) {
 function addTask(event) {
   event.preventDefault(); 
 
+  //added a validation to ensure the title is mandatory
+  const titleInput = document.getElementById('title-input').value;
+  if (!titleInput) {
+    alert('Task title is required!');
+    return;
+  }
+
   //Assign user input to the task object
   //add title, description and status to the task const
     const task = {
