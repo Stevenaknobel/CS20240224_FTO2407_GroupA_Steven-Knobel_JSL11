@@ -21,6 +21,7 @@ function initializeData() {
 //localStorage.clear()
 
 // TASK: Get elements from the DOM
+//Fetch the elements from the DOM
 const elements = {
   headerBoardName: document.getElementById('header-board-name'),
   columnDivs: document.querySelectorAll('.column-div'),
@@ -259,9 +260,6 @@ function toggleSidebar(show) {
   sidebar.classList.toggle('show-sidebar', show);
   //hide button when sidebar is showing
   showButton.style.display = show ? 'none' : 'block';
-  //create a const to ensure the logo is visible when toggling the sidebar on and off in lightmode
-  const logo = document.getElementById('logo');
-  logo.style.visibility = show ? 'visible': 'hidden';
   //save the visibility to localstorage
   localStorage.setItem("showSideBar", show);
 }
@@ -362,4 +360,7 @@ function init() {
     // Set the logo source based on the theme so that the light logo shows when you refresh the page
     const logo = document.getElementById('logo');
     logo.src = isLightTheme ? './assets/logo-light.svg' : './assets/logo-dark.svg';
+    //ensure that the dark/light mode toggle correctly reflects what is stored in local memory
+    const themeButton = document.getElementById('switch');
+    themeButton.checked = isLightTheme;
 }
